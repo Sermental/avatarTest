@@ -11,6 +11,8 @@
 <body>
     <canvas style="width: 90dvw; height: 50dvh" id="canvas"></canvas>
     <button id="change-skin">Cambiar Color de Piel</button>
+    <button onclick="toImage()">Generar Imagen</button>
+    <img src="" style="height: 30dvh;" id="imageIcon" alt="">
 </body>
 <script>
 
@@ -56,6 +58,11 @@
         const bumpTrigger = inputs.find(i => i.name === 'color_piel');
         bumpTrigger.value = colorPielInput
     });
+
+    function toImage () {
+       const url =  document.getElementById("canvas").toDataURL("image/png", 1)
+       document.getElementById("imageIcon").src = url
+    }
 </script>
 
 </html>
