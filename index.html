@@ -19,8 +19,8 @@
     const layout = new rive.Layout({
         fit: rive.Fit.Contain, // Change to: rive.Fit.Contain, or Cover ot FitWidth
         alignment: rive.Alignment.Center,
-      });
-      
+    });
+
 
     const r = new rive.Rive({
         src: "avatar.riv",
@@ -32,6 +32,14 @@
         layout: layout,
         onLoad: () => {
             r.resizeDrawingSurfaceToCanvas()
+
+            window.addEventListener(
+                "resize",
+                () => {
+                    r.resizeDrawingSurfaceToCanvas();
+                },
+                false
+            );
 
             const inputs = r.stateMachineInputs('character');
             const bumpTrigger = inputs.find(i => i.name === 'color_piel');
@@ -48,15 +56,6 @@
         const bumpTrigger = inputs.find(i => i.name === 'color_piel');
         bumpTrigger.value = colorPielInput
     });
-
-    window.addEventListener(
-        "resize",
-        () => {
-            riveInstance.resizeDrawingSurfaceToCanvas();
-        },
-        false
-    );
-    
 </script>
 
 </html>
