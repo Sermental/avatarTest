@@ -48,6 +48,15 @@
         const bumpTrigger = inputs.find(i => i.name === 'color_piel');
         bumpTrigger.value = colorPielInput
     });
+
+    window.addEventListener(
+        "resize",
+        () => {
+            riveInstance.resizeDrawingSurfaceToCanvas();
+        },
+        false
+    );
+    
 </script>
 
 </html>
