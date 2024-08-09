@@ -9,12 +9,18 @@
 </head>
 
 <body>
-    <canvas id="canvas" width="500" height="500"></canvas>
+    <canvas style="width: 90dvw; height: 50dvh" id="canvas"></canvas>
     <button id="change-skin">Cambiar Color de Piel</button>
 </body>
 <script>
 
     let colorPielInput = 0
+
+    const layout = new rive.Layout({
+        fit: rive.Fit.Contain, // Change to: rive.Fit.Contain, or Cover ot FitWidth
+        alignment: rive.Alignment.Center,
+      });
+      
 
     const r = new rive.Rive({
         src: "avatar.riv",
@@ -23,6 +29,7 @@
         canvas: document.getElementById("canvas"),
         autoplay: true,
         stateMachines: "character",
+        layout: layout,
         onLoad: () => {
             r.resizeDrawingSurfaceToCanvas()
 
